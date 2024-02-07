@@ -121,7 +121,7 @@ const Profile = () => {
       setShowListingError(false);
       const res = await fetch(`/Backend/user/listings/${currentUser._id}`);
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       setUserListing(data);
     } catch (error) {
       setUserListing(true);
@@ -142,7 +142,6 @@ const Profile = () => {
       setUserListing((prev) => prev.filter((list) => list._id !== id));
     } catch (error) {}
   };
-  const handleEditListing = async () => {};
   return (
     <section className="p-3  max-w-lg mx-auto my-6">
       <h1 className="text-center font-bold text-3xl my-4">Profile </h1>
@@ -253,12 +252,13 @@ const Profile = () => {
                   </p>
                 </Link>
                 <div className="flex flex-col gap-2">
-                  <button
-                    onClick={handleEditListing}
-                    className="bg-green-400 px-3 py-1 rounded-lg hover:bg-green-500"
-                  >
-                    Edit
-                  </button>
+                  <Link to={`/update-listing/${list._id}`}>
+                    <button
+                      className="bg-green-400 px-3 py-1 rounded-lg hover:bg-green-500"
+                    >
+                      Edit
+                    </button>
+                  </Link>
                   <button
                     onClick={() => handleDeleteListing(list._id)}
                     className="bg-red-400 px-3 py-1 rounded-lg hover:bg-red-500"

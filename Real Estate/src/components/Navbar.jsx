@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser.avatar)
+  // console.log(currentUser.avatar)
   return (
     <nav className="bg-slate-200 shadow-sm">
       <div className="flex justify-between mx-auto items-center max-w-4xl p-3">
