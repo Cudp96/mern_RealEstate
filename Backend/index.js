@@ -15,6 +15,8 @@ mongoose
   })
   .catch((err) => console.log("Error connecting"));
 
+const __dirname = path.resolve();
+
 //Express
 const app = express();
 //To send json data to server we haved used it.
@@ -29,6 +31,14 @@ app.listen(3000, () => {
 app.use("/Backend/user", userRouter);
 app.use("/Backend/auth", authRouter);
 app.use("/Backend/listing", listingRouter);
+
+// Serve static files from the "Real_Estate" directory
+app.use(express.static(path.join(__dirname, "Real Estate/dist")));
+
+// Serve index.html for all other routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Real Estate/dist/index.html"));
+});
 
 //This is a middle ware to handle error ino our code
 app.use((err, req, res, next) => {
