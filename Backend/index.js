@@ -6,7 +6,7 @@ dotenv.config();
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
 import listingRouter from "./routes/listing.route.js";
-
+import path from "path";
 //Connection made to Mongo Db
 mongoose
   .connect(process.env.Mongo_URL)
@@ -14,7 +14,6 @@ mongoose
     console.log("Connected to MongoDB");
   })
   .catch((err) => console.log("Error connecting"));
-
 const __dirname = path.resolve();
 
 //Express
