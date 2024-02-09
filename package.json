@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon Backend/index.js",
     "start": "node Backend/index.js",
     "build": "npm install && npm install --prefix 'Real_Estate' && npm run build --prefix 'Real-Estate'"
   },
